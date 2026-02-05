@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
-import { NAV_LINKS } from "../constants"; 
+// FIX: Import NAV_LINKS but alias it as navLinks to match your code
+import { NAV_LINKS as navLinks } from "../constants"; 
 import { logo, menu, close } from "../assets";
 
-export const Navbar = () => {
+const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -27,10 +28,11 @@ export const Navbar = () => {
 
   return (
     <nav
-      // CHANGED: Removed logic for bg-transparent. Added 'bg-primary' to make it always opaque.
       className={`${
         styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-50 bg-primary`}
+      } w-full flex items-center py-5 fixed top-0 z-20 ${
+        scrolled ? "bg-primary" : "bg-transparent"
+      }`}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link
@@ -41,38 +43,42 @@ export const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
+          <img src={logo} alt='logo' className='w-9 h-9 object-contain rounded-full' />
           <p className='text-white text-[18px] font-bold cursor-pointer flex '>
             Kamashwara &nbsp;
-            <span className='sm:block hidden'> | Portfolio</span>
+            <span className='sm:block hidden'>| Portfolio</span>
           </p>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className='hidden sm:flex flex-row gap-10 items-center'>
-          <ul className='list-none flex flex-row gap-10'>
-            {NAV_LINKS.map((nav) => (
-              <li
-                key={nav.id}
-                className={`${
-                  active === nav.title ? "text-white" : "text-secondary"
-                } hover:text-white text-[18px] font-medium cursor-pointer`}
-                onClick={() => setActive(nav.title)}
-              >
-                <a href={`#${nav.id}`}>{nav.title}</a>
-              </li>
-            ))}
-          </ul>
-          
-          {/* REMOVED: Social Icons section was here */}
-        </div>
+        <ul className='list-none hidden sm:flex flex-row gap-10'>
+          {navLinks.map((link) => (
+            <li
+              key={link.id}
+              className={`${
+                active === link.title ? "text-white" : "text-secondary"
+              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              onClick={() => setActive(link.title)}
+            >
+              {link.id === "GitHub" ? (
+                 <a href="https://github.com/kamashwara-dk" target="_blank" rel="noopener noreferrer">
+                   {link.title}
+                 </a>
+              ) : link.id === "LinkedIn" ? (
+                 <a href="https://www.linkedin.com/in/kamashwara-dk/" target="_blank" rel="noopener noreferrer">
+                   {link.title}
+                 </a>
+              ) : (
+                 <a href={`#${link.id}`}>{link.title}</a>
+              )}
+            </li>
+          ))}
+        </ul>
 
-        {/* Mobile Menu */}
         <div className='sm:hidden flex flex-1 justify-end items-center'>
           <img
             src={toggle ? close : menu}
             alt='menu'
-            className='w-[28px] h-[28px] object-contain cursor-pointer'
+            className='w-[28px] h-[28px] object-contain'
             onClick={() => setToggle(!toggle)}
           />
 
@@ -82,21 +88,30 @@ export const Navbar = () => {
             } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-              {NAV_LINKS.map((nav) => (
+              {navLinks.map((link) => (
                 <li
-                  key={nav.id}
+                  key={link.id}
                   className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
+                    active === link.title ? "text-white" : "text-secondary"
                   }`}
                   onClick={() => {
                     setToggle(!toggle);
-                    setActive(nav.title);
+                    setActive(link.title);
                   }}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
+                  {link.id === "GitHub" ? (
+                    <a href="https://github.com/kamashwara-dk" target="_blank" rel="noopener noreferrer">
+                      {link.title}
+                    </a>
+                  ) : link.id === "LinkedIn" ? (
+                    <a href="https://www.linkedin.com/in/kamashwara-dk/" target="_blank" rel="noopener noreferrer">
+                      {link.title}
+                    </a>
+                  ) : (
+                    <a href={`#${link.id}`}>{link.title}</a>
+                  )}
                 </li>
               ))}
-               {/* REMOVED: Mobile Social Icons section was here */}
             </ul>
           </div>
         </div>

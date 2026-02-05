@@ -11,11 +11,11 @@ import {
 import { Contact } from "./contact";
 import { Experience } from "./experience";
 import { Feedbacks } from "./feedbacks";
-import { Hero } from "./hero";
+import { Hero } from "./Hero";
 import { Navbar } from "./navbar";
 import { Tech } from "./tech";
 import { Works } from "./works";
-import { Certifications } from "./certifications";  
+import { Certifications } from "./Certifications";  
 
 export {
   About,

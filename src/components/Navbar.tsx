@@ -50,6 +50,7 @@ const Navbar = () => {
           </p>
         </Link>
 
+        {/* --- DESKTOP MENU --- */}
         <ul className='list-none hidden sm:flex flex-row gap-10'>
           {navLinks.map((link) => (
             <li
@@ -67,6 +68,11 @@ const Navbar = () => {
                  <a href="https://www.linkedin.com/in/kamashwara-dk/" target="_blank" rel="noopener noreferrer">
                    {link.title}
                  </a>
+              ) : link.id === "Resume" ? (
+                 // --- RESUME LOGIC ADDED HERE ---
+                 <a href="/resume.pdf" download="Kamashwara_Resume.pdf">
+                   {link.title}
+                 </a>
               ) : (
                  <a href={`#${link.id}`}>{link.title}</a>
               )}
@@ -74,6 +80,7 @@ const Navbar = () => {
           ))}
         </ul>
 
+        {/* --- MOBILE MENU --- */}
         <div className='sm:hidden flex flex-1 justify-end items-center'>
           <img
             src={toggle ? close : menu}
@@ -105,6 +112,11 @@ const Navbar = () => {
                     </a>
                   ) : link.id === "LinkedIn" ? (
                     <a href="https://www.linkedin.com/in/kamashwara-dk/" target="_blank" rel="noopener noreferrer">
+                      {link.title}
+                    </a>
+                  ) : link.id === "Resume" ? (
+                    // --- RESUME LOGIC ADDED HERE (MOBILE) ---
+                    <a href="/resume.pdf" download="Kamashwara_Resume.pdf">
                       {link.title}
                     </a>
                   ) : (

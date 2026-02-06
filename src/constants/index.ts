@@ -55,6 +55,10 @@ export const NAV_LINKS = [
     link: null,
   },
   {
+    id: "Resume",    // <--- ADD THIS
+    title: "Resume", // <--- ADD THIS
+  },
+  {
     id: "LinkedIn",
     title: "LinkedIn",
     link: "https://www.linkedin.com/in/kamashwara-dk",

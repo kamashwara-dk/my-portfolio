@@ -3,24 +3,18 @@ import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
 
 import { styles } from "../styles";
-import { fadeIn, textVariant, staggerContainer } from "../utils/motion";
-import { CERTIFICATIONS } from "../constants";
+import { SectionWrapper } from "../hoc";
+import { fadeIn, textVariant } from "../utils/motion";
+import { CERTIFICATIONS as certifications } from "../constants"; 
 
 const CertificationCard = ({
   index,
   name,
   issuer,
-  image,
   date,
-  description,
-}: {
-  index: number;
-  name: string;
-  issuer: string;
-  image: string;
-  date: string;
-  description: string;
-}) => (
+  image,
+  link,
+}: any) => (
   <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
     <Tilt
       options={{
@@ -28,24 +22,29 @@ const CertificationCard = ({
         scale: 1,
         speed: 450,
       }}
-      className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full h-full'
+      // FIX: Changed sm:w-[300px] to sm:w-[360px] to match Project cards
+      className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
     >
       <div className='relative w-full h-[230px]'>
         <img
           src={image}
           alt={name}
-          className='w-full h-full object-fill rounded-2xl'
+          className='w-full h-full object-cover rounded-2xl'
         />
       </div>
 
       <div className='mt-5'>
-        <h3 className='text-white font-bold text-[20px]'>{name}</h3>
-        <p className='mt-2 text-secondary text-[14px] font-semibold'>{issuer}</p>
-        <p className='mt-1 text-gray-400 text-[12px] italic'>{date}</p>
+        <h3 className='text-white font-bold text-[24px]'>{name}</h3>
+        <p className='mt-2 text-secondary text-[14px]'>{issuer}</p>
+        <p className='text-secondary text-[12px]'>{date}</p>
         
-        <p className='mt-4 text-white text-[14px] leading-6'>
-          {description}
-        </p>
+        {link && (
+            <div className="mt-4">
+                <a href={link} target="_blank" rel="noreferrer" className="text-blue-400 text-[14px] hover:underline">
+                    View Credential
+                </a>
+            </div>
+        )}
       </div>
     </Tilt>
   </motion.div>
@@ -53,32 +52,28 @@ const CertificationCard = ({
 
 const Certifications = () => {
   return (
-    // We manually add the SectionWrapper logic here to prevent errors
-    <motion.section
-      variants={staggerContainer(0, 0)} // Added basic stagger args
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
-      className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
-    >
-      {/* This span creates the ID for scrolling */}
-      <span className="hash-span" id="certifications">
-        &nbsp;
-      </span>
-
-      <motion.div variants={textVariant(0.1)}>
-        <p className={styles.sectionSubText}>My Credentials</p>
-        <h2 className={styles.sectionHeadText}>Certifications.</h2>
+    <>
+      <motion.div variants={textVariant(0)}>
+        <p className={`${styles.sectionSubText}`}>My Achievements</p>
+        <h2 className={`${styles.sectionHeadText}`}>Certifications.</h2>
       </motion.div>
 
+      <div className='w-full flex'>
+        <motion.p
+          variants={fadeIn("up", "spring", 0.1, 1)}
+          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
+        >
+          Here are some of the professional certifications I have earned.
+        </motion.p>
+      </div>
+
       <div className='mt-20 flex flex-wrap gap-7'>
-        {CERTIFICATIONS.map((cert, index) => (
-          <CertificationCard key={`cert-${index}`} index={index} {...cert} />
+        {certifications.map((cert: any, index: number) => (
+          <CertificationCard key={cert.name} index={index} {...cert} />
         ))}
       </div>
-    </motion.section>
+    </>
   );
 };
 
-export { Certifications }; // Named export for index.ts
-export default Certifications; // Default export for standard usage
+export default SectionWrapper(Certifications, "certifications");

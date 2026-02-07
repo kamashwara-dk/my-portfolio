@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
-// Assuming your file is still named 'photo.jpeg' based on previous steps
 import profilePic from "../assets/photo.jpeg"; 
 
 const Hero = () => {
@@ -16,22 +15,21 @@ const Hero = () => {
           <div className='w-1 sm:h-80 h-40 violet-gradient' />
         </div>
 
-        <div className="z-10">
+        <div className="z-10 w-full"> {/* Added w-full */}
           
-          {/* CHANGE 1: Increased gap-5 to gap-8, and mb-4 to mb-8 for more spacing */}
-          <div className="flex items-center gap-8 mb-8">
+          {/* FIX: Added 'flex-col-reverse' for mobile (stack up) and 'sm:flex-row' for desktop (side-by-side) */}
+          <div className="flex flex-col-reverse sm:flex-row items-start sm:items-center gap-4 sm:gap-8 mb-4 sm:mb-8">
             <h1 className={`${styles.heroHeadText} text-white`}>
               Hi, I'm <span className='text-[#915EFF]'>Kamashwara</span>
             </h1>
             
-            {/* CHANGE 2: Increased size from w-24 h-24 to w-32 h-32 */}
+            {/* FIX: Smaller image on mobile (w-24) to fit better */}
             <img 
               src={profilePic} 
               alt="profile"
-              className="w-32 h-32 rounded-full border-2 border-[#915EFF] object-cover"
+              className="w-24 h-24 sm:w-32 sm:h-32 rounded-full border-2 border-[#915EFF] object-cover"
             />
           </div>
-
         </div>
       </div>
 

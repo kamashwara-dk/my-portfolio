@@ -1,6 +1,6 @@
 // src/constants/index.ts
 
-import { 
+import {
   mobile,
   backend,
   creator,
@@ -29,34 +29,44 @@ import {
   iei,
   alsahraa,
   andro,
-  bigdata, 
-  careerskills, 
-  dataanalytic, 
-  hybridhack, 
-  ibm, 
-  sih, 
-  solutionarch 
+  bigdata,
+  careerskills,
+  dataanalytic,
+  hybridhack,
+  ibm,
+  sih,
+  solutionarch
 } from "../assets";
 
 export const NAV_LINKS = [
   {
     id: "about",
     title: "About",
-    link: null,
+    path: "/about",
   },
   {
-    id: "work",
-    title: "Work",
-    link: null,
+    id: "experience",
+    title: "Experience",
+    path: "/experience",
+  },
+  {
+    id: "projects",
+    title: "Projects",
+    path: "/projects",
+  },
+  {
+    id: "certifications",
+    title: "Certifications",
+    path: "/certifications",
   },
   {
     id: "contact",
     title: "Contact",
-    link: null,
+    path: "/contact",
   },
   {
-    id: "Resume",    // <--- ADD THIS
-    title: "Resume", // <--- ADD THIS
+    id: "Resume",
+    title: "Resume",
   },
   {
     id: "LinkedIn",
@@ -84,7 +94,7 @@ export const SERVICES = [
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "Cloud Engineer",
     icon: creator,
   },
 ] as const;

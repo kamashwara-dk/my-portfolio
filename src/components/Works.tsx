@@ -24,9 +24,10 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
+        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full card-glow'
       >
-        <div className='relative w-full h-[230px]'>
+        {/* Image with hover zoom */}
+        <div className='relative w-full h-[230px] img-zoom rounded-2xl'>
           <img
             src={image}
             alt='project_image'
@@ -34,16 +35,18 @@ const ProjectCard = ({
           />
 
           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-            <div
+            <motion.div
               onClick={() => window.open(source_code_link, "_blank")}
               className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+              whileHover={{ scale: 1.2, rotate: 360 }}
+              transition={{ duration: 0.4 }}
             >
               <img
                 src={github}
                 alt='source code'
                 className='w-1/2 h-1/2 object-contain'
               />
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -52,11 +55,13 @@ const ProjectCard = ({
           <p className='mt-2 text-secondary text-[14px]'>{description}</p>
         </div>
 
+        {/* Tags with slide-in animation */}
         <div className='mt-4 flex flex-wrap gap-2'>
-          {tags.map((tag: any) => (
+          {tags.map((tag: any, i: number) => (
             <p
               key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
+              className={`text-[14px] ${tag.color} tag-slide`}
+              style={{ animationDelay: `${i * 0.1}s` }}
             >
               #{tag.name}
             </p>
@@ -77,7 +82,6 @@ const Works = () => {
 
       <div className='w-full flex'>
         <motion.p
-          // FIX: Changed "" to "up" to satisfy TypeScript
           variants={fadeIn("up", "spring", 0.1, 1)}
           className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
         >

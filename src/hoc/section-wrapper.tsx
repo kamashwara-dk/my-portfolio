@@ -3,8 +3,7 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { staggerContainer } from "../utils/motion";
 
-// Change 1: Added "export const" here
-export const SectionWrapper = (Component: any, idName: string) =>
+export const SectionWrapper = (Component: any, _idName: string) =>
   function HOC() {
     return (
       <motion.section
@@ -14,13 +13,7 @@ export const SectionWrapper = (Component: any, idName: string) =>
         viewport={{ once: true, amount: 0.25 }}
         className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
       >
-        <span className='hash-span' id={idName}>
-          &nbsp;
-        </span>
-
         <Component />
       </motion.section>
     );
   };
-
-// Change 2: Removed "export default SectionWrapper" from the bottom

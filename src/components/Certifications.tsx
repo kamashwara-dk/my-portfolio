@@ -5,7 +5,7 @@ import { Tilt } from "react-tilt";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
-import { CERTIFICATIONS as certifications } from "../constants"; 
+import { CERTIFICATIONS as certifications } from "../constants";
 
 const CertificationCard = ({
   index,
@@ -22,10 +22,10 @@ const CertificationCard = ({
         scale: 1,
         speed: 450,
       }}
-      // FIX: Changed sm:w-[300px] to sm:w-[360px] to match Project cards
-      className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
+      className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full card-glow'
     >
-      <div className='relative w-full h-[230px]'>
+      {/* Image with zoom effect */}
+      <div className='relative w-full h-[230px] img-zoom rounded-2xl'>
         <img
           src={image}
           alt={name}
@@ -37,13 +37,13 @@ const CertificationCard = ({
         <h3 className='text-white font-bold text-[24px]'>{name}</h3>
         <p className='mt-2 text-secondary text-[14px]'>{issuer}</p>
         <p className='text-secondary text-[12px]'>{date}</p>
-        
+
         {link && (
-            <div className="mt-4">
-                <a href={link} target="_blank" rel="noreferrer" className="text-blue-400 text-[14px] hover:underline">
-                    View Credential
-                </a>
-            </div>
+          <div className="mt-4">
+            <a href={link} target="_blank" rel="noreferrer" className="text-blue-400 text-[14px] hover:underline credential-link">
+              View Credential →
+            </a>
+          </div>
         )}
       </div>
     </Tilt>

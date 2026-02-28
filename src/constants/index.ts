@@ -42,27 +42,22 @@ export const NAV_LINKS = [
   {
     id: "about",
     title: "About",
-    path: "/about",
   },
   {
-    id: "experience",
+    id: "work",
     title: "Experience",
-    path: "/experience",
   },
   {
     id: "projects",
     title: "Projects",
-    path: "/projects",
   },
   {
     id: "certifications",
     title: "Certifications",
-    path: "/certifications",
   },
   {
     id: "contact",
     title: "Contact",
-    path: "/contact",
   },
   {
     id: "Resume",

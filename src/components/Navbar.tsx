@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { styles } from "../styles";
@@ -10,34 +9,54 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(scrollTop > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Sync active state with current route
+  // Track active section via IntersectionObserver
   useEffect(() => {
-    const currentLink = navLinks.find(
-      (link): link is (typeof navLinks)[number] & { path: string } =>
-        "path" in link && link.path === location.pathname
+    const sectionIds = navLinks
+      .filter((link) => !["Resume", "LinkedIn", "GitHub"].includes(link.id))
+      .map((link) => link.id);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const matchingLink = navLinks.find((l) => l.id === entry.target.id);
+            if (matchingLink) {
+              setActive(matchingLink.title);
+            }
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
     );
-    if (currentLink) {
-      setActive(currentLink.title);
-    } else if (location.pathname === "/") {
-      setActive("");
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleScrollTo = (id: string, isMobile = false) => {
+    if (isMobile) setToggle(false);
+    const el = document.getElementById(id);
+    if (el) {
+      const offset = 80;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
     }
-  }, [location.pathname]);
+  };
 
   const renderNavLink = (link: (typeof navLinks)[number], isMobile = false) => {
     // External links
@@ -63,18 +82,17 @@ const Navbar = () => {
       );
     }
 
-    // Internal route links
-    // Internal route links (path exists on all remaining variants)
+    // Internal scroll links
     return (
-      <Link
-        to={"path" in link ? link.path : "/"}
-        onClick={() => {
-          if (isMobile) setToggle(false);
-          window.scrollTo(0, 0);
+      <a
+        href={`#${link.id}`}
+        onClick={(e) => {
+          e.preventDefault();
+          handleScrollTo(link.id, isMobile);
         }}
       >
         {link.title}
-      </Link>
+      </a>
     );
   };
 
@@ -88,12 +106,13 @@ const Navbar = () => {
         } transition-all duration-300`}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
-        <Link
-          to='/'
+        <a
+          href='#'
           className='flex items-center gap-2 group'
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             setActive("");
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
           <motion.img
@@ -107,7 +126,7 @@ const Navbar = () => {
             Kamashwara &nbsp;
             <span className='sm:block hidden'>| Portfolio</span>
           </p>
-        </Link>
+        </a>
 
         {/* --- DESKTOP MENU --- */}
         <ul className='list-none hidden sm:flex flex-row gap-10'>
@@ -143,7 +162,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.85, y: -10 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl"
+                className="p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[200px] z-10 rounded-xl shadow-xl shadow-black/40"
               >
                 <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
                   {navLinks.map((link, i) => (

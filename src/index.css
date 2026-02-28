@@ -20,27 +20,24 @@
 }
 
 .black-gradient {
-  background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #000000;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right,
+      #434343,
+      #000000);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,
+      #434343,
+      #000000);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .violet-gradient {
   background: #804dee;
   background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
-  background: -webkit-linear-gradient(
-    -90deg,
-    #804dee 0%,
-    rgba(60, 51, 80, 0) 100%
-  );
+  background: -webkit-linear-gradient(-90deg,
+      #804dee 0%,
+      rgba(60, 51, 80, 0) 100%);
 }
 
 .green-pink-gradient {
@@ -50,66 +47,62 @@
 }
 
 .orange-text-gradient {
-  background: #f12711; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #f12711,
-    #f5af19
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #f12711,
-    #f5af19
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #f12711;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top,
+      #f12711,
+      #f5af19);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top,
+      #f12711,
+      #f5af19);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .green-text-gradient {
-  background: #11998e; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #11998e,
-    #38ef7d
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #11998e,
-    #38ef7d
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #11998e;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top,
+      #11998e,
+      #38ef7d);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top,
+      #11998e,
+      #38ef7d);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .blue-text-gradient {
   /* background: -webkit-linear-gradient(#eee, #333); */
-  background: #56ccf2; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #2f80ed,
-    #56ccf2
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #2f80ed,
-    #56ccf2
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #56ccf2;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top,
+      #2f80ed,
+      #56ccf2);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top,
+      #2f80ed,
+      #56ccf2);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .pink-text-gradient {
-  background: #ec008c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #ec008c,
-    #fc6767
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #ec008c,
-    #fc6767
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #ec008c;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top,
+      #ec008c,
+      #fc6767);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top,
+      #ec008c,
+      #fc6767);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -127,6 +120,7 @@
 }
 
 @keyframes mulShdSpin {
+
   0%,
   100% {
     box-shadow:
@@ -139,6 +133,7 @@
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.5),
       -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
   }
+
   12.5% {
     box-shadow:
       0em -2.6em 0em 0em rgba(255, 255, 255, 0.7),
@@ -150,6 +145,7 @@
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
   }
+
   25% {
     box-shadow:
       0em -2.6em 0em 0em rgba(255, 255, 255, 0.5),
@@ -161,6 +157,7 @@
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
   }
+
   37.5% {
     box-shadow:
       0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
@@ -172,6 +169,7 @@
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
   }
+
   50% {
     box-shadow:
       0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
@@ -183,6 +181,7 @@
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
   }
+
   62.5% {
     box-shadow:
       0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
@@ -194,6 +193,7 @@
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
   }
+
   75% {
     box-shadow:
       0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
@@ -205,6 +205,7 @@
       -2.6em 0em 0 0em #ffffff,
       -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
   }
+
   87.5% {
     box-shadow:
       0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
@@ -224,13 +225,16 @@
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #050816;
 }
+
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #915eff, #804dee);
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #a47aff, #915eff);
 }
@@ -241,6 +245,7 @@
 .nav-link-hover {
   position: relative;
 }
+
 .nav-link-hover::after {
   content: '';
   position: absolute;
@@ -252,6 +257,7 @@
   transition: width 0.3s ease, left 0.3s ease;
   border-radius: 2px;
 }
+
 .nav-link-hover:hover::after {
   width: 100%;
   left: 0;
@@ -263,6 +269,7 @@
 .card-glow {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .card-glow:hover {
   transform: translateY(-5px);
   box-shadow:
@@ -276,9 +283,11 @@
 .img-zoom {
   overflow: hidden;
 }
+
 .img-zoom img {
   transition: transform 0.4s ease;
 }
+
 .img-zoom:hover img {
   transform: scale(1.08);
 }
@@ -290,6 +299,7 @@
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
   border: 1px solid transparent;
 }
+
 .input-glow:focus {
   box-shadow:
     0 0 0 2px rgba(145, 94, 255, 0.3),
@@ -307,6 +317,7 @@
   position: relative;
   overflow: hidden;
 }
+
 .btn-gradient::before {
   content: '';
   position: absolute;
@@ -316,14 +327,17 @@
   transition: opacity 0.3s ease;
   z-index: 0;
 }
+
 .btn-gradient:hover::before {
   opacity: 1;
 }
+
 .btn-gradient:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 25px rgba(145, 94, 255, 0.4);
 }
-.btn-gradient > * {
+
+.btn-gradient>* {
   position: relative;
   z-index: 1;
 }
@@ -334,6 +348,7 @@
 .vertical-timeline-element-icon {
   transition: box-shadow 0.3s ease;
 }
+
 .vertical-timeline-element:hover .vertical-timeline-element-icon {
   box-shadow:
     0 0 0 4px #151030,
@@ -347,6 +362,7 @@
 .vertical-timeline-element-content {
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
+
 .vertical-timeline-element:hover .vertical-timeline-element-content {
   transform: translateY(-3px);
   box-shadow:
@@ -362,6 +378,7 @@
   transform: translateX(-10px);
   animation: slideInPoint 0.4s ease forwards;
 }
+
 @keyframes slideInPoint {
   to {
     opacity: 1;
@@ -375,9 +392,17 @@
 .profile-float {
   animation: profileFloat 3s ease-in-out infinite;
 }
+
 @keyframes profileFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 /* ===================== */
@@ -387,11 +412,13 @@
   animation: lineGrow 1.5s ease-out forwards;
   transform-origin: top;
 }
+
 @keyframes lineGrow {
   from {
     transform: scaleY(0);
     opacity: 0;
   }
+
   to {
     transform: scaleY(1);
     opacity: 1;
@@ -406,6 +433,7 @@
   transform: translateY(8px);
   animation: tagSlideIn 0.3s ease forwards;
 }
+
 @keyframes tagSlideIn {
   to {
     opacity: 1;
@@ -419,6 +447,236 @@
 .credential-link {
   transition: all 0.3s ease;
 }
+
 .credential-link:hover {
   text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+}
+
+/* ===================== */
+/* Mobile Responsiveness  */
+/* ===================== */
+
+/* Full-width cards on mobile */
+@media (max-width: 640px) {
+  .card-glow {
+    width: 100% !important;
+  }
+
+  /* Better touch targets */
+  .nav-link-hover a,
+  .credential-link,
+  .btn-gradient {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Improve timeline on small screens */
+  .vertical-timeline-element-content {
+    padding: 1rem !important;
+  }
+
+  .vertical-timeline-element-content h3 {
+    font-size: 18px !important;
+  }
+
+  .vertical-timeline-element-content p {
+    font-size: 13px !important;
+  }
+
+  /* Better spacing for mobile sections */
+  .hash-span {
+    margin-top: -80px;
+    padding-bottom: 80px;
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 768px) {
+  .card-glow {
+    width: 100% !important;
+  }
+}
+
+/* Improve overall mobile experience */
+@media (max-width: 450px) {
+
+  /* Reduce hero text size on very small screens */
+  .hero-head-text {
+    font-size: 32px !important;
+    line-height: 40px !important;
+  }
+
+  /* Make service cards stack */
+  .service-card {
+    width: 100% !important;
+  }
+
+  /* Smoother scrolling on mobile */
+  html {
+    scroll-padding-top: 80px;
+  }
+}
+
+/* Mobile menu backdrop */
+@media (max-width: 640px) {
+  .mobile-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+  }
+}
+
+/* ===================================== */
+/* Background Animation Layer            */
+/* ===================================== */
+.background-animation-container {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Floating particles */
+.floating-particle {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform, opacity;
+}
+
+/* Gradient mesh blobs */
+.gradient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.08;
+  will-change: transform;
+}
+
+.blob-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #915eff 0%, transparent 70%);
+  top: 10%;
+  left: -5%;
+  animation: blobDrift1 25s ease-in-out infinite;
+}
+
+.blob-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #00cea8 0%, transparent 70%);
+  top: 50%;
+  right: -5%;
+  animation: blobDrift2 30s ease-in-out infinite;
+}
+
+.blob-3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #bf61ff 0%, transparent 70%);
+  bottom: 10%;
+  left: 30%;
+  animation: blobDrift3 28s ease-in-out infinite;
+}
+
+@keyframes blobDrift1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(80px, 60px) scale(1.1);
+  }
+
+  50% {
+    transform: translate(40px, -40px) scale(0.9);
+  }
+
+  75% {
+    transform: translate(-30px, 80px) scale(1.15);
+  }
+}
+
+@keyframes blobDrift2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(-60px, -50px) scale(1.05);
+  }
+
+  50% {
+    transform: translate(-100px, 30px) scale(0.95);
+  }
+
+  75% {
+    transform: translate(40px, -70px) scale(1.1);
+  }
+}
+
+@keyframes blobDrift3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(70px, -40px) scale(1.08);
+  }
+
+  66% {
+    transform: translate(-50px, 50px) scale(0.92);
+  }
+}
+
+/* Subtle scan lines for sci-fi feel */
+.scan-lines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.008) 2px,
+      rgba(255, 255, 255, 0.008) 4px);
+  pointer-events: none;
+}
+
+/* ===================================== */
+/* Social Icon Hover Effects              */
+/* ===================================== */
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #aaa6c3;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(4px);
+}
+
+.social-icon-link:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(145, 94, 255, 0.2), rgba(0, 206, 168, 0.2));
+  border-color: rgba(145, 94, 255, 0.4);
+  box-shadow:
+    0 0 20px rgba(145, 94, 255, 0.25),
+    0 0 40px rgba(145, 94, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.social-icon-link:active {
+  transform: translateY(-1px);
 }
